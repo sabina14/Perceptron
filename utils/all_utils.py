@@ -16,6 +16,7 @@ def prepare_data(df):
 
   return X,y
 
+# save model
 
 def save_model(model,filename): # save model for reuse
   model_dir="models"
@@ -70,3 +71,6 @@ def save_plot(df,file_name,model):
   os.makedirs(plot_dir,exist_ok=True) # only create if model dir doesnot exists
   plotPath=os.path.join(plot_dir,file_name) #model/filename based onos
   plt.savefig(plotPath)
+
+
+
