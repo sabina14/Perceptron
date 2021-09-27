@@ -1,10 +1,11 @@
+from os import closerange
 import numpy as np
 
 class Perceptron:
   
   def __init__(self,eta,epoochs):
     self.weights=np.random.randn(3)*1e-4 #small weight initialization
-    print(f"intial weights before training:{self.weights}")
+    print("intial weights before training:\n {}".format(self.weights))
     self.eta=eta #learning rate
     self.epoochs=epoochs
 
@@ -18,7 +19,7 @@ class Perceptron:
 
     X_with_bias=np.c_[self.X,-np.ones((len(self.X),1))] #c is concat
     #X_with_bias = np.c_[self.X, -np.ones((len(self.X), 1))]
-    print(f"X with bias: \n{X_with_bias}")
+    print("X with bias: \n{}".format(X_with_bias))
 
 
     for epooch in range(self.epoochs):
@@ -27,10 +28,10 @@ class Perceptron:
       print("--"*10)
 
       yhat=self.activationfunction(X_with_bias,self.weights) #forward pass
-      print(f"Predicted value after fprward pass:\n{yhat}")
+      print("Predicted value after fprward pass:\n{}".format(yhat))
 
       self.error=self.y-yhat
-      print(f"Errors:\n {self.error}")
+      print("Errors:\n {}".format(self.error))
 
       self.weights=self.weights + self.eta *  np.dot(X_with_bias.T,self.error) #backward propagation
       print(f"update weights after epoch:\n{epooch}/{self.epoochs} : {self.weights}")

@@ -3,7 +3,8 @@ import os
 from matplotlib import pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
-
+import pandas as pd
+plt.style.use("fivethirtyeight")
 
 
 
